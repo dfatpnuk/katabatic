@@ -1,6 +1,6 @@
-% pip install wheel
-% pip install setuptools
-% pip install twine
+# % pip install wheel
+# % pip install setuptools
+# % pip install twine
 
 import importlib # are these 
 import os
