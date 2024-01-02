@@ -2,8 +2,8 @@
 
 # Author: Jaime Blackwell
 # License: GNU Affero License  
-
-from abc import ABC, abstractmethod
+import abc
+from abc import ABC, abstractmethod   # Import abstraction Module
 
 class Model(ABC):
 
@@ -28,21 +28,15 @@ class Model(ABC):
         self.k = 0
 
     @abstractmethod
-    def fit(#self,
-    x, Y, **kwargs):    # sklearn-style fit method
+    def fit(self, x, Y):    # sklearn-style fit method   ,x, Y, **kwargs
         self.x = x
         self.Y = Y
-
         return NotImplementedError('model.fit() must be defined in the concrete class')
 
     @abstractmethod
-    def generate(self, size=None, **kwargs):
-
+    def generate(self):      # , size=None, **kwargs
         return NotImplementedError('model.generate() must be defined in the concrete class')
 
     @abstractmethod
-    def evaluate(self, x, Y, classifier):
-
-        return NotImplementedError('model.evaluate() must be defined in the concrete class')
-
-
+    def evaluate(self):   # x, Y, classifier
+        pass
