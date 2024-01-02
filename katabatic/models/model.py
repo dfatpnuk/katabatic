@@ -1,7 +1,7 @@
 """Abstract Base class for all models."""
 
 # Author: Jaime Blackwell
-# License: 
+# License: GNU Affero License  
 
 from abc import ABC, abstractmethod
 
