@@ -1,10 +1,11 @@
 # A dummy datagen model written by Jaime Blackwell
 
-import model   # Import the abstract base class
+from katabatic.models.model import Model   # Import the abstract base class
 
 # This dummy model simply duplicates the data and returns it. 
-class DummyModel(model):
-    def __init__(self, x, Y, batch_size = 64):
+class DummyModel(Model):
+
+    def __init__(self, x, Y, batch_size=64):
         
         self.batch_size = batch_size
         self.x = x   # data to train on
@@ -19,3 +20,6 @@ class DummyModel(model):
 
     def generate():
         return 42
+
+    def evaluate(self):
+        return "Seems pretty good"

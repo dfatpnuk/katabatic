@@ -28,7 +28,8 @@ class Model(ABC):
         self.k = 0
 
     @abstractmethod
-    def fit(self, x, Y, k=self.k, batch_size=self.batch_size, epochs=self.epochs, **kwargs):    # sklearn-style fit method
+    def fit(#self,
+    x, Y, **kwargs):    # sklearn-style fit method
         self.x = x
         self.Y = Y
 
