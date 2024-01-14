@@ -1,18 +1,16 @@
-medGAN
+Katabatic
 =========================================
-medGAN is a generative adversarial network for generating multi-label discrete patient records. It can generate both binary and count variables (i.e. medical codes such as diagnosis codes, medication codes or procedure codes).
+Katabatic is an open-source tabular data generation framework designed for data generative models such as GANBLR, TableGAN, MedGan etc...
 
 #### Relevant Publications
 
-medGAN implements the algorithm introduced in the following [paper](https://arxiv.org/abs/1703.06490):
+GANBLR is a data generative model introduced in the following [paper]([https://arxiv.org/abs/1703.06490](https://www.researchgate.net/publication/356159733_GANBLR_A_Tabular_Data_Generation_Model)):
 
-	Generating Multi-label Discrete Patient Records using Generative Adversarial Networks
-	Edward Choi, Siddharth Biswal, Bradley Malin, Jon Duke, Walter F. Stewart, Jimeng Sun  
-	Machine Learning for Healthcare (MLHC) 2017
+	Zhang, Yishuo & Zaidi, Nayyar & Zhou, Jiahui & li, Gang. (2021). GANBLR: A Tabular Data Generation Model. 10.1109/ICDM51629.2021.00103. 
 
 #### Code Description
 
-This code trains a generative adversarial network to generate patient records. This work currently can handle patient records that are aggregated over time, hence represented as a matrix where a row corresponds to a patient, and a column to a specific medical code (e.g. diagonsis code, medication code, or procedure code). The value of the matrix could either be binary (i.e. a specific medical code occurred in the longitudinal patient record or not) or count (i.e. how many times a specific medical code occurred in the longitudinal patient record).
+Katabatic is a framework designed to make generating and evaluating synthetic data much easier. Katabatic has been build with the understanding that different domains have different requirements of synthetic data, and therefore provides a range of evaluation methods.
 	
 #### Running GRAM
 
