@@ -3,6 +3,7 @@
 from katabatic.models.model import Model   # Import the abstract base class
 
 # This dummy model simply duplicates the data and returns it. 
+# Adding an extra comment for no reason
 class DummyModel(Model):
 
     def __init__(self, x, Y, batch_size=64):
