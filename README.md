@@ -25,12 +25,9 @@ Next, import the desired model or models:
 
 #### Relevant Publications
 
-GANBLR is a data generative model introduced in the following [paper]([https://arxiv.org/abs/1703.06490](https://www.researchgate.net/publication/356159733_GANBLR_A_Tabular_Data_Generation_Model)):
+GANBLR is a data generative model introduced in the following [paper](https://www.researchgate.net/publication/356159733_GANBLR_A_Tabular_Data_Generation_Model):
 
 	Zhang, Yishuo & Zaidi, Nayyar & Zhou, Jiahui & li, Gang. (2021). 
  	GANBLR: A Tabular Data Generation Model. 10.1109/ICDM51629.2021.00103. 
 
 
-# Sources Used
-* https://medium.com/analytics-vidhya/how-to-create-a-python-library-7d5aea80cc3f
-* https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
