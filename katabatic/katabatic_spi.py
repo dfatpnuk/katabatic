@@ -1,19 +1,19 @@
 # The Katabatic Service Provider Interface (SPI) provides an abstract base class (ABC) for all model adapters to implement.
 
-from abc import ABC
+from abc import ABC, abstractmethod
 
 class KatabaticSPI(ABC):
 
-    def init():   #Initialise the model
-        pass
-
+    @abstractmethod
     def load(): #Load the model
         pass
 
-    def fit():  #Fit model to data
+    @abstractmethod
+    def fit(self):  #Fit model to data
         pass
 
-    def generate(): #Generate synthetic data
+    @abstractmethod
+    def generate(self): #Generate synthetic data
         pass
 
 
