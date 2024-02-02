@@ -1,5 +1,5 @@
 {
     "#": "Katabatic Configuration File",
-    "tdgm_module_name": "ganblr_adapter",
+    "tdgm_module_name": "models/ganblr/ganblr_adapter",
     "tdgm_class_name": "GanblrAdapter"
 }

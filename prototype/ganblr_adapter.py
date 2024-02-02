@@ -1,7 +1,7 @@
 #!pip install ganblr
 from katabatic_spi import KatabaticSPI
 
-class GanblrAdapter():
+class GanblrAdapter(KatabaticSPI):
     def load_data(self, data_pathname):
         print("GanblrAdapter.load_data()")
 
