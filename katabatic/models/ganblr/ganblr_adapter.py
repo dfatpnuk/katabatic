@@ -3,14 +3,14 @@ import pandas as pd #Install pandas into venv
 from ganblr.models import GANBLR
 
 class GanblrAdapter(KatabaticSPI):
-
-    def __init__(self):
+    
+    def load_model(self):
         self.model = GANBLR() # Initialise and return an instance of the ganblr model. 
         self.training_sample_size = 0
         return self.model
 
     #TODO: add exception handling to load()
-    def load(self, data_pathname):
+    def load_data(self, data_pathname):
         data = pd.DataFrame
         print("Loading Data...")
         return data

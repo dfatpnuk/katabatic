@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 class KatabaticSPI(ABC):
 
     @abstractmethod
-    def load(): #Load the model
+    def load_data(): #Load the model
         pass
 
     @abstractmethod
