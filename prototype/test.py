@@ -11,6 +11,8 @@
 # - Improve command line handling with the "click" module
 
 import json
+from multiprocessing import Process
+import os
 import sys
 
 from katabatic_spi import KatabaticSPI
@@ -20,6 +22,11 @@ from aiko_services.utilities import *
 CONFIGURATION_FILE = "test.json"
 
 def run_datagen_model(datagen_model_name):
+    print(f"--------------------------")
+    print(f"module name:    {__name__}")
+    print(f"parent process: {os.getppid()}")
+    print(f"process id:     {os.getpid()}")
+
     with open(CONFIGURATION_FILE, "r") as file:
         configuration = json.load(file)
 
@@ -56,11 +63,21 @@ def run_datagen_model(datagen_model_name):
 
 if __name__ == "__main__":
     print(f"[Katabatic test 0.1]")
+    print(f"module name:    {__name__}")
+    print(f"parent process: {os.getppid()}")
+    print(f"process id:     {os.getpid()}")
 
     if len(sys.argv) < 2:
         raise SystemExit("Usage: test.py DATAGEN_MODEL_NAME ...")
     arguments = sys.argv[1:]
 
     for index in range(len(arguments)):
-        datagen_model_name = arguments[index]
-        run_datagen_model(datagen_model_name)
+    #   p = Process(target=f, args=("./test.sh {arguments[index]},))
+    #   p.start()
+    #   p.join()
+    #   READ DATA FROM CHILD PROCESS
+
+        datagen_model_name = arguments[index]  # Move to child proess
+        run_datagen_model(datagen_model_name)  # Move to child proess
+
+    # COMPARE AND GRAPH ALL THE CHILD PROCESS RESULTS !
