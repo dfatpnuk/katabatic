@@ -5,30 +5,41 @@
 # - Activate Python virtual environment that has Aiko Services installed
 # - Edit the CONFIGURATION_FILE and change parameters as needed
 # - ./test.py  # Load module, instantiate class and invoke methods
+#
+# To Do
+# ~~~~~
+# - Improve command line handling with the "click" module
 
-import json   # json module 
+import json
+import sys
 
 from katabatic_spi import KatabaticSPI
 
 from aiko_services.utilities import *
 
-CONFIGURATION_FILE = "test.json"  # constant to retrieve the json config file. 
+CONFIGURATION_FILE = "test.json"
 
-def main():
+def main(datagen_model_name):
     print(f"[Katabatic test 0.0]")
 
-    with open(CONFIGURATION_FILE, "r") as file:  # Open readonly
-        configuration = json.load(file)  #configuration var is now a dict
+    with open(CONFIGURATION_FILE, "r") as file:
+        configuration = json.load(file)
+
+        if not datagen_model_name in configuration:
+            raise SystemExit(
+                f"Configuration '{CONFIGURATION_FILE}' doesn't have DataGen model: {datagen_model_name}")
+        configuration = configuration[datagen_model_name]
+
     try:
-        datagen_module_descriptor = configuration["datagen_module_descriptor"]  # unload the json dict 
+        datagen_module_descriptor = configuration["datagen_module_descriptor"]
         datagen_class_name = configuration["datagen_class_name"]
     except KeyError as key_error:
-        raise SystemExit(       # SystemExit exception prints the below and immediately exits the interpreter
+        raise SystemExit(
             f"Configuration '{CONFIGURATION_FILE}' doesn't have: {key_error}")
 
     diagnostic = None
     try:
-        datagen_module = load_module(datagen_module_descriptor) # using aiko method
+        datagen_module = load_module(datagen_module_descriptor)
         datagen_class = getattr(datagen_module, datagen_class_name)
     except FileNotFoundError:
         diagnostic = "couldn't be found"
@@ -37,8 +48,8 @@ def main():
     if diagnostic:
         raise SystemExit(f"Module {datagen_module_descriptor} {diagnostic}")
 
-    data_gen_ml = datagen_class() #  create an instance of the datagen class
-    if not isinstance(data_gen_ml, KatabaticSPI):       # Handles edge cases where the model isn't compatible with the SPI
+    data_gen_ml = datagen_class()
+    if not isinstance(data_gen_ml, KatabaticSPI):
         raise SystemExit(f"{datagen_class_name} doesn't implement KatabaticSPI")
 
     data_gen_ml.load_data(None)
@@ -46,4 +57,7 @@ def main():
     data_gen_ml.fit_model(None)
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+        raise SystemExit("Usage: test.py DATAGEN_MODEL_NAME")
+    datagen_model_name = sys.argv[1]
+    main(datagen_model_name)
