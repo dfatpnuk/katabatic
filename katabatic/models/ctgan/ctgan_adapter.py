@@ -5,7 +5,7 @@ from ctgan import CTGAN
 class CtganAdapter(KatabaticSPI):
     
     def load_model(self):
-        self.model = CTGAN() # Initialise and return an instance of the ganblr model. 
+        self.model = CTGAN() # Initialise and return an instance of the model
         self.training_sample_size = 0
         return self.model
 
