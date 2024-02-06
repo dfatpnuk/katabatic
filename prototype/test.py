@@ -19,9 +19,7 @@ from aiko_services.utilities import *
 
 CONFIGURATION_FILE = "test.json"
 
-def main(datagen_model_name):
-    print(f"[Katabatic test 0.0]")
-
+def run_datagen_model(datagen_model_name):
     with open(CONFIGURATION_FILE, "r") as file:
         configuration = json.load(file)
 
@@ -57,7 +55,12 @@ def main(datagen_model_name):
     data_gen_ml.fit_model(None)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        raise SystemExit("Usage: test.py DATAGEN_MODEL_NAME")
-    datagen_model_name = sys.argv[1]
-    main(datagen_model_name)
+    print(f"[Katabatic test 0.1]")
+
+    if len(sys.argv) < 2:
+        raise SystemExit("Usage: test.py DATAGEN_MODEL_NAME ...")
+    arguments = sys.argv[1:]
+
+    for index in range(len(arguments)):
+        datagen_model_name = arguments[index]
+        run_datagen_model(datagen_model_name)
