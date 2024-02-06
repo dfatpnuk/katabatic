@@ -1,4 +1,5 @@
-.DS_store/
-venv_katabatic/
-venv_ganblr/
-venv_ctgan/
+.DS_store
+__pycache__
+venv_ctgan
+venv_ganblr
+venv_katabatic

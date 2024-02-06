@@ -1,5 +1,5 @@
 {
   "#": "Katabatic Configuration File",
-  "datagen_module_descriptor": "ganblr_adapter",
-  "datagen_class_name": "GanblrAdapter"
+  "datagen_module_descriptor": "mock_datagen_1",
+  "datagen_class_name": "MockDataGen1"
 }

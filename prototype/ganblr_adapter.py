@@ -1,4 +1,5 @@
-#!pip install ganblr
+# pip install ganblr
+
 from katabatic_spi import KatabaticSPI
 
 class GanblrAdapter(KatabaticSPI):
