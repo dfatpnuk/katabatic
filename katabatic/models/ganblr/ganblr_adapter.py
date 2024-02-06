@@ -1,6 +1,6 @@
 from katabatic_spi import KatabaticSPI
 import pandas as pd #Install pandas into venv
-from ganblr.models import GANBLR
+from ganblr import GANBLR
 
 class GanblrAdapter(KatabaticSPI):
     
