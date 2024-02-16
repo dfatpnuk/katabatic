@@ -34,10 +34,9 @@ def main():
     if not isinstance(model, KatabaticSPI):
         raise SystemExit(f"{class_name} doesn't implement KatabaticSPI.")
     
-    model.init(None)
-    model.load(None)
-    model.fit(None)
-    model.generate(None)
+    model.load_model()
+    model.fit()
+    model.generate()
 
 if __name__ == "__main__":
     main()
