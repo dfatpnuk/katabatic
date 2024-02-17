@@ -1,0 +1,7 @@
+{
+    "trtr": "trtr.py",
+    "tstr": "tstr.py",
+    "model_compatability": "model_compatability.py",
+    "q_score": "q_score.py",
+    "similarity:": "similarity.py"
+}
