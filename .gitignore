@@ -3,3 +3,5 @@ __pycache__
 venv_ctgan
 venv_ganblr
 venv_katabatic
+
+*.drawio.bkp
