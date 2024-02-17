@@ -1,4 +1,4 @@
-from katabatic_spi import KatabaticSPI
+from katabatic_spi import ModelSPI
 import pandas as pd
 from ctgan import CTGAN
 
