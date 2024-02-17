@@ -1,8 +1,8 @@
-from katabatic_spi import ModelSPI
+from katabatic_spi import KatabaticModelSPI
 import pandas as pd
 from ctgan import CTGAN
 
-# class CtganAdapter(KatabaticSPI):
+# class CtganAdapter(KatabaticModelSPI):
     
 #     def load_model(self):
 #         self.model = CTGAN() # Initialise and return an instance of the model
@@ -29,7 +29,7 @@ from ctgan import CTGAN
 #         generated_data = self.model.sample(size)
 #         return generated_data
     
-class CtganAdapter(KatabaticSPI):
+class CtganAdapter(KatabaticModelSPI):
 
     def load_model(self): #Load the model
         self.model = CTGAN(epochs=10)   # Initialise and return an instance of the model

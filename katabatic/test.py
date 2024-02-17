@@ -2,7 +2,7 @@
 # To change the Tabular Data Generative Model (TDGM) used, update 'katabatic_config.json'
 
 import json  #json module for config
-from katabatic_spi import KatabaticSPI  #Katabatic SPI 
+from katabatic_spi import KatabaticModelSPI  #Katabatic SPI 
 from aiko_services.utilities import *   #Aiko Services
 
 CONFIG_FILE = "katabatic_config.json" #Constant to retrieve config file

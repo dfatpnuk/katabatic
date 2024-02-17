@@ -1,8 +1,8 @@
-from katabatic_spi import KatabaticSPI
+from katabatic_spi import KatabaticModelSPI
 import pandas as pd #Install pandas into venv
 from ganblr import GANBLR
 
-class GanblrAdapter(KatabaticSPI):
+class GanblrAdapter(KatabaticModelSPI):
     
     def load_model(self):
         self.model = GANBLR() # Initialise and return an instance of the ganblr model. 
