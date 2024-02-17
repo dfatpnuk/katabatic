@@ -1,13 +1,13 @@
-<mxfile host="Electron" modified="2024-02-15T10:13:09.133Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="ZVAq0zThu37-it9oAFrl" version="22.1.16" type="device">
+<mxfile host="Electron" modified="2024-02-17T02:16:43.153Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="yrhiw3LNsN62XthF0LBY" version="22.1.16" type="device">
   <diagram name="Page-1" id="i7JvG8cdJ4gOSr7KXsND">
     <mxGraphModel dx="1867" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="XJmU0kUThvejPJpiqxQQ-1" value="Katabatic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#000000;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="350" y="153" width="120" height="60" as="geometry" />
+          <mxGeometry x="628" y="99" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="XJmU0kUThvejPJpiqxQQ-2" value="&lt;i&gt;KatabaticSPI&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
+        <mxCell id="XJmU0kUThvejPJpiqxQQ-2" value="&lt;i&gt;KatabaticModelSPI&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="330" y="287" width="160" height="208" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-12" value="+ type: string (eg. &#39;model&#39;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" vertex="1" parent="XJmU0kUThvejPJpiqxQQ-2">
@@ -32,7 +32,7 @@
           <mxGeometry y="182" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="XJmU0kUThvejPJpiqxQQ-6" value="&lt;i&gt;Evaluate&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="792" y="479" width="160" height="86" as="geometry" />
+          <mxGeometry x="855" y="290" width="160" height="86" as="geometry" />
         </mxCell>
         <mxCell id="XJmU0kUThvejPJpiqxQQ-7" value="+ field: type" style="text;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" parent="XJmU0kUThvejPJpiqxQQ-6" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -113,7 +113,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-11" value="«interface»&lt;br&gt;&lt;b&gt;KatabaticSPI&lt;/b&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="355" y="226" width="110" height="50" as="geometry" />
+          <mxGeometry x="593" y="322" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-15" value="" style="shape=providedRequiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;" vertex="1" parent="1">
           <mxGeometry x="374" y="459" width="20" height="20" as="geometry" />
