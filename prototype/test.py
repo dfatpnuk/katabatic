@@ -17,7 +17,8 @@ import sys
 
 from katabatic_spi import KatabaticSPI
 
-from aiko_services.utilities import *
+# from aiko_services.utilities import *
+from importer import load_module
 
 CONFIGURATION_FILE = "test.json"
 
