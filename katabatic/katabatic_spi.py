@@ -5,11 +5,11 @@ from abc import ABC, abstractmethod
 class KatabaticModelSPI(ABC):
 
     @abstractmethod
-    def load_model(): #Load the model
+    def load_model(self): #Load the model
         pass
 
     @abstractmethod
-    def load_data(): #Load data
+    def load_data(self): #Load data
         pass
 
     @abstractmethod
@@ -26,20 +26,8 @@ class KatabaticModelSPI(ABC):
 class KatabaticMetricSPI(ABC):
 
     @abstractmethod
-    def evaluate(): #Load the model
-        pass
-
-    @abstractmethod
-    def load_data(): #Load data
-        pass
-
-    @abstractmethod
-    def fit(self):  #Fit model to data
-        pass
-
-    @abstractmethod
-    def generate(self): #Generate synthetic data
-        pass
+    def evaluate(real_data, synthetic_data): # Evaluate the synthetic data against the real data
+        print("Comparing real data to synthetic data.")
 
         
     
