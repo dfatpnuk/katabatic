@@ -20,7 +20,7 @@ from katabatic_spi import KatabaticSPI
 # from aiko_services.utilities import *
 from importer import load_module
 
-CONFIGURATION_FILE = "test.json"
+CONFIG_FILE = "test.json"
 
 def run_datagen_model(datagen_model_name):
     print(f"--------------------------")
@@ -28,10 +28,10 @@ def run_datagen_model(datagen_model_name):
     print(f"parent process: {os.getppid()}")
     print(f"process id:     {os.getpid()}")
 
-    with open(CONFIGURATION_FILE, "r") as file:
-        configuration = json.load(file)
+    with open(CONFIG_FILE, "r") as file:
+        config = json.load(file)
 
-        if not datagen_model_name in configuration:
+        if not datagen_model_name in config:
             raise SystemExit(
                 f"Configuration '{CONFIGURATION_FILE}' doesn't have DataGen model: {datagen_model_name}")
         configuration = configuration[datagen_model_name]
