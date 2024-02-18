@@ -3,7 +3,7 @@
 
 import json  #json module for config
 from katabatic_spi import KatabaticModelSPI  #Katabatic SPI 
-from aiko_services.utilities import *   #Aiko Services
+from importer import load_module   #Aiko Services
 
 CONFIG_FILE = "katabatic_config.json" #Constant to retrieve config file
 
@@ -21,21 +21,26 @@ def main():
     
     diagnostic = None #initialise an empty diagnostic variable
     try:
+        # breakpoint()
         module = load_module(module_name)  # load_module method from Aiko services
         model_class = getattr(module, class_name)
     except FileNotFoundError:
         diagnostic = "could not be found."
-    except Exception:
-        diagnostic = "could not be loaded."
+    # except Exception as exception:
+    #     diagnostic = f"could not be loaded: {exception}"
     if diagnostic:
         raise SystemExit(f"Module {module_name} {diagnostic}")
 
     model = model_class() # Create an instance of the model class
-    if not isinstance(model, KatabaticSPI):
-        raise SystemExit(f"{class_name} doesn't implement KatabaticSPI.")
+    if not isinstance(model, KatabaticModelSPI):
+        raise SystemExit(f"{class_name} doesn't implement KatabaticModelSPI.")
     
+    # TODO: Add some demo data here
+    X_train = 0
+    y_train = 0
+
     model.load_model()
-    model.fit()
+    model.fit(X_train, y_train)
     model.generate()
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 {
     "#": "Katabatic Configuration File",
-    "tdgm_module_name": "models/ganblr/ganblr_adapter.py",
-    "tdgm_class_name": "GanblrAdapter"
+    "tdgm_module_name": "models.new_model_template.mock_adapter",
+    "tdgm_class_name": "MockAdapter"
 }
