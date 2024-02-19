@@ -1,5 +1,4 @@
 # This file declaratively loads the configured module and instantiates the Tabular Data Generative Model (TDGM) class.
-# To change the Tabular Data Generative Model (TDGM) used, update 'katabatic_config.json'
 
 import os
 import sys
@@ -63,7 +62,8 @@ def run_model(model_name):
 
     model.load_model()
     model.fit(X_train, y_train)
-    model.generate()
+    synthetic_data = pd.DataFrame(model.generate())
+    return synthetic_data
 
 if __name__ == "__main__":
     print(f"[Katabatic test 0.1]")
@@ -77,4 +77,5 @@ if __name__ == "__main__":
 
     for index in range(len(arguments)):
         model_name = arguments[index]  # Move to child proess
-        run_model(model_name)  # Move to child proess
+        result = run_model(model_name)  # Move to child proess
+        print(result)
