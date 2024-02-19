@@ -4,6 +4,7 @@
 import os
 import sys
 import json
+import pandas as pd
 from multiprocessing import Process
 from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
 
@@ -50,9 +51,15 @@ def run_model(model_name):
     if not isinstance(model, KatabaticModelSPI):
         raise SystemExit(f"{class_name} doesn't implement KatabaticModelSPI.")
     
-    # TODO: Add some demo data here
-    X_train = 0
-    y_train = 0
+    demo_data = pd.DataFrame(
+              {'Name': ['Tom', 'Dick', 'Harry'],
+              'Age':[25,27,29],
+              'Height':[175,177,179],
+               'Weight':[65,75,85]}
+    )
+    # TODO: Add a module for generating demo data. 
+    X_train = demo_data[['Name','Age','Height']]
+    y_train = demo_data[['Weight']]
 
     model.load_model()
     model.fit(X_train, y_train)

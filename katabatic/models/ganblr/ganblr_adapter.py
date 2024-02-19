@@ -19,7 +19,7 @@ class GanblrAdapter(KatabaticModelSPI):
     def fit(self, X_train, y_train, k=0, epochs=10, batch_size=64):   #TODO: remove hard coded numbers
         
         self.model.fit(X_train, y_train, k, batch_size=batch_size, epochs=epochs) # TODO: train self.model on the input data
-        self.training_sample_size = X_train.len()
+        self.training_sample_size = len(X_train)
         return   # Don't need to return anything. 
 
     #TODO: add exception handling to generate()
