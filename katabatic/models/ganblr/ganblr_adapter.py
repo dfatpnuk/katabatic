@@ -1,6 +1,6 @@
 from katabatic_spi import KatabaticModelSPI
 import pandas as pd
-from ganblr.ganblr.ganblr import GANBLR
+from .ganblr import GANBLR
 
 class GanblrAdapter(KatabaticModelSPI):
     

@@ -35,6 +35,7 @@ def run_model(model_name):
     diagnostic = None # initialise an empty diagnostic variable
     try:
         #breakpoint()
+        print(module_name)
         module = load_module(module_name)  # load_module method from Aiko services
         model_class = getattr(module, class_name)
         
