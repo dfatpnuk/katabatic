@@ -1,5 +1,4 @@
 # This file declaratively loads the configured module and instantiates the Tabular Data Generative Model (TDGM) class.
-
 import os
 import sys
 import json
