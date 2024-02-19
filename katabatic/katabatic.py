@@ -8,7 +8,8 @@ from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI
 
 from importer import load_module   # Aiko Services module loader
 
-CONFIG_FILE = "katabatic_config.json" #Constant to retrieve config file
+CONFIG_FILE = "katabatic_config.json" # Constant to retrieve config file
+METRICS_FILE = "metrics.metrics.json"   # Constant to retrieve metrics function table
 
 def run_model(model_name):
     print(f"--------------------------")
@@ -22,7 +23,7 @@ def run_model(model_name):
         if not model_name in config:
             raise SystemExit(
                 f"Configuration '{CONFIG_FILE}' doesn't have model: {model_name}")
-        config = config[model_name] # now config is just one dict, containing config variables of a single model.
+        config = config[model_name] # update config to just one dict, containing config variables of a single model.
 
     try:
         module_name = config["tdgm_module_name"]
@@ -63,6 +64,33 @@ def run_model(model_name):
     model.fit(X_train, y_train)
     synthetic_data = pd.DataFrame(model.generate())
     return synthetic_data
+
+def run_metric(metric_name):
+    print(f"--------------------------")
+    print(f"metric name:    {metric_name}")
+    print(f"parent process: {os.getppid()}")
+    print(f"process id:     {os.getpid()}")
+
+    with open(METRICS_FILE, "r") as file:
+        metrics = json.load(file)
+
+        if not metric_name in metrics:
+            raise SystemExit(
+                f"Metrics Function Table '{METRICS_FILE}' doesn't contain metric: {metric_name}")
+        metric = metrics[metric_name]
+
+    diagnostic = None # initialise an empty diagnostic variable  
+    try:
+        file_path = metric[metric_name]
+    
+    except FileNotFoundError:
+        diagnostic = "could not be found."
+    except Exception as exception:
+        diagnostic = f"could not be loaded: {exception}"
+    if diagnostic:
+        raise SystemExit(f"Metric {metric_name} {diagnostic}")
+
+    return
 
 if __name__ == "__main__":
     print(f"[Katabatic test 0.1]")
