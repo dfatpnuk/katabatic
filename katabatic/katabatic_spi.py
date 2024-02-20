@@ -3,6 +3,13 @@
 from abc import ABC, abstractmethod
 
 class KatabaticModelSPI(ABC):
+    
+    @abstractmethod
+    def __init__(self, type):
+        self.type = None  # Should be either 'discrete' or 'continuous'
+        self.constraints = None 
+        self.batch_size = None
+        self.epochs = None
 
     @abstractmethod
     def load_model(self): #Load the model
