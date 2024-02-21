@@ -34,15 +34,20 @@ def evaluate(X_real, y_real,X_synthetic, y_synthetic):
     # X_real, y_real = ordinal_enc.transform(X_real), label_enc.transform(y_real)
 
     categories = ["Category"] #['Continental','Subtropical','Tropical']
-    eval_pipeline = Pipeline([('encoder', OneHotEncoder(categories=categories, handle_unknown='ignore')), ('model',  LogisticRegression)])
+    print(len(categories))
+    print(type(categories))
+    ohe = OneHotEncoder(handle_unknown='ignore')
+    logreg = LogisticRegression()
+    eval_pipeline = Pipeline([('encoder', ohe), ('model', logreg)])
     eval_pipeline.fit(X_synthetic, y_synthetic)
     y_pred = eval_pipeline.predict(X_real)
+
     return accuracy_score(y_real, y_pred)
-    return type(X_real)
-    # print(categories.shape)
+    # return type(X_real)
     # return categories.shape
 
-evaluate(X_real, y_real, X_synthetic, y_synthetic)
+result = evaluate(X_real, y_real, X_synthetic, y_synthetic)
+print("accuracy score: ", result)
         
 
 
