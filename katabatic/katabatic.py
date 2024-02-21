@@ -52,12 +52,14 @@ class Katabatic():
         if not isinstance(model, KatabaticModelSPI):
             raise SystemExit(f"{class_name} doesn't implement KatabaticModelSPI.")
         
-        demo_data = pd.DataFrame(
-                {'Name': ['Tom', 'Dick', 'Harry'],
-                'Age':[25,27,29],
-                'Height':[175,177,179],
-                'Weight':[65,75,85]}
-        )
+        # demo_data = pd.DataFrame(
+        #         {'Name': ['Tom', 'Dick', 'Harry'],
+        #         'Age':[25,27,29],
+        #         'Height':[175,177,179],
+        #         'Weight':[65,75,85]}
+        # )
+        demo_data = pd.read_csv('cities_demo.csv')
+
         # TODO: Add a module for generating demo data. 
         X_train = demo_data[['Name','Age','Height']]
         y_train = demo_data[['Weight']]

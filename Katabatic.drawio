@@ -1,14 +1,14 @@
-<mxfile host="Electron" modified="2024-02-20T04:08:06.956Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="6w9yCRfCYfXKVGCLOxD3" version="22.1.16" type="device">
+<mxfile host="Electron" modified="2024-02-21T02:26:17.927Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="2EPoEZWngTSkjpOq__Gq" version="22.1.16" type="device">
   <diagram name="Page-1" id="i7JvG8cdJ4gOSr7KXsND">
-    <mxGraphModel dx="1777" dy="1135" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1692" dy="992" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="XJmU0kUThvejPJpiqxQQ-1" value="Katabatic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#000000;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="640" y="-400" width="120" height="60" as="geometry" />
+          <mxGeometry x="988" y="-397" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="XJmU0kUThvejPJpiqxQQ-2" value="&lt;i&gt;KatabaticModelSPI&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="170" y="247" width="160" height="208" as="geometry" />
+          <mxGeometry x="-78" y="-158" width="160" height="208" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-12" value="+ type: string (discrete/cont)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" parent="XJmU0kUThvejPJpiqxQQ-2" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -32,7 +32,7 @@
           <mxGeometry y="182" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="XJmU0kUThvejPJpiqxQQ-6" value="&lt;i&gt;Evaluate&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="402" y="747" width="160" height="86" as="geometry" />
+          <mxGeometry x="154" y="342" width="160" height="86" as="geometry" />
         </mxCell>
         <mxCell id="XJmU0kUThvejPJpiqxQQ-7" value="+ field: type" style="text;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" parent="XJmU0kUThvejPJpiqxQQ-6" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -71,7 +71,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="7RvZ6ujfD1toi3vZn5ir-3" value="ganblr" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#1ba1e2;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="170" y="585" width="160" height="104" as="geometry" />
+          <mxGeometry x="-78" y="180" width="160" height="104" as="geometry" />
         </mxCell>
         <mxCell id="7RvZ6ujfD1toi3vZn5ir-4" value="+ fit()" style="text;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" parent="7RvZ6ujfD1toi3vZn5ir-3" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -83,7 +83,7 @@
           <mxGeometry y="78" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="7RvZ6ujfD1toi3vZn5ir-18" value="dummy" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#1ba1e2;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry y="585" width="160" height="104" as="geometry" />
+          <mxGeometry x="-248" y="180" width="160" height="104" as="geometry" />
         </mxCell>
         <mxCell id="7RvZ6ujfD1toi3vZn5ir-19" value="+ fit()" style="text;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" parent="7RvZ6ujfD1toi3vZn5ir-18" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -104,37 +104,37 @@
           <mxGeometry y="60" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-2" value="ctgan" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#1ba1e2;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="340" y="585" width="160" height="52" as="geometry" />
+          <mxGeometry x="92" y="180" width="160" height="52" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-6" value="meg" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#1ba1e2;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="510" y="585" width="160" height="52" as="geometry" />
+          <mxGeometry x="262" y="180" width="160" height="52" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.503;entryY=0.962;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;strokeColor=#000000;" parent="1" source="7RvZ6ujfD1toi3vZn5ir-18" target="7RvZ6ujfD1toi3vZn5ir-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-11" value="«interface»&lt;br&gt;&lt;b&gt;KatabaticModelSPI&lt;/b&gt;" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#000000;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="480" y="-281" width="200" height="51" as="geometry" />
+          <mxGeometry x="828" y="-278" width="200" height="51" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-15" value="" style="shape=providedRequiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;" parent="1" vertex="1">
-          <mxGeometry x="374" y="459" width="20" height="20" as="geometry" />
+          <mxGeometry x="126" y="54" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" parent="1" source="m-xUPWcNT1cz5ocmYWoy-20" target="m-xUPWcNT1cz5ocmYWoy-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-20" value="Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="520" y="-160" width="120" height="60" as="geometry" />
+          <mxGeometry x="868" y="-157" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#000000;" parent="1" source="m-xUPWcNT1cz5ocmYWoy-21" target="m-xUPWcNT1cz5ocmYWoy-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-21" value="Metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#000000;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="760" y="-160" width="120" height="60" as="geometry" />
+          <mxGeometry x="1108" y="-157" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="m-xUPWcNT1cz5ocmYWoy-22" value="«interface»&lt;br&gt;&lt;b&gt;KatabaticMetrics&lt;/b&gt;" style="html=1;whiteSpace=wrap;fillColor=#1ba1e2;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="720" y="-281" width="200" height="51" as="geometry" />
+          <mxGeometry x="1068" y="-278" width="200" height="51" as="geometry" />
         </mxCell>
         <mxCell id="SRl0MXrCcEwVmlMT_6_e-1" value="&lt;i&gt;Katabatic&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="184" width="160" height="156" as="geometry" />
+          <mxGeometry x="-188" y="-340" width="160" height="156" as="geometry" />
         </mxCell>
         <mxCell id="SRl0MXrCcEwVmlMT_6_e-5" value="+ CONFIG_FILE" style="text;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#000000;" vertex="1" parent="SRl0MXrCcEwVmlMT_6_e-1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -152,16 +152,16 @@
           <mxGeometry y="130" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="SRl0MXrCcEwVmlMT_6_e-9" value="" style="shape=providedRequiredInterface;html=1;verticalLabelPosition=bottom;sketch=0;" vertex="1" parent="1">
-          <mxGeometry x="228" y="172" width="20" height="20" as="geometry" />
+          <mxGeometry x="-144" y="-168" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="SRl0MXrCcEwVmlMT_6_e-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Katabatic:Class&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;CONFIG_FILE&lt;br&gt;METRICS_FILE&lt;br&gt;+ run_model() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;+ run_metric() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;+ evaluate_data() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;+ evaluate_model() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#b1ddf0;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="382" width="160" height="131" as="geometry" />
+          <mxGeometry x="10" y="-340" width="160" height="131" as="geometry" />
         </mxCell>
-        <mxCell id="SRl0MXrCcEwVmlMT_6_e-16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Katabatic&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ CONFIG_FILE : Type&lt;br&gt;+ METRICS_FILE : Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ run_model() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ run_metric() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ evaluate_data() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ evaluate_model() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#b1ddf0;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="571.5" y="1" width="257" height="171" as="geometry" />
+        <mxCell id="SRl0MXrCcEwVmlMT_6_e-16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Katabatic&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ CONFIG_FILE : string&lt;br&gt;+ METRICS_FILE : string&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ run_model() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ run_metric() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ evaluate_data() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;+ evaluate_model() :&amp;nbsp;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#b1ddf0;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="919.5" y="4" width="257" height="171" as="geometry" />
         </mxCell>
-        <mxCell id="SRl0MXrCcEwVmlMT_6_e-17" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&lt;b&gt;&amp;lt;&amp;lt;KatabaticModelSPI&amp;gt;&amp;gt;&lt;/b&gt;&lt;/i&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ CONFIG_FILE : Type&lt;br&gt;+ METRICS_FILE : Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ method1(Type): Type&lt;br&gt;+ method2(Type, Type): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#b1ddf0;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="571.5" y="205" width="257" height="171" as="geometry" />
+        <mxCell id="SRl0MXrCcEwVmlMT_6_e-17" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&lt;b&gt;&amp;lt;&amp;lt;KatabaticModelSPI&amp;gt;&amp;gt;&lt;/b&gt;&lt;/i&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ CONFIG_FILE : Type&lt;br&gt;+ METRICS_FILE : Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&amp;nbsp;+ fit()&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;: Type&lt;/span&gt;&lt;br&gt;&amp;nbsp;+ generate()&amp;nbsp;: Type&lt;br&gt;&amp;nbsp;+ evaluate() :&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#b1ddf0;strokeColor=#000000;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="919.5" y="208" width="257" height="171" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
