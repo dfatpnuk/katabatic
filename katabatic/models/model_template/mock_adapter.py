@@ -1,7 +1,13 @@
 from katabatic_spi import KatabaticModelSPI
 
 class MockAdapter(KatabaticModelSPI):
-    
+
+    def __init__(self, type='discrete'):
+        self.type = None  # Should be either 'discrete' or 'continuous'
+        self.constraints = None 
+        self.batch_size = None
+        self.epochs = None
+
     def load_model(self):
         print('Loading the model')
 

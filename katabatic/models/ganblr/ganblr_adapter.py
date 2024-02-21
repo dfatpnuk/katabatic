@@ -4,6 +4,12 @@ from .ganblr import GANBLR
 
 class GanblrAdapter(KatabaticModelSPI):
     
+    def __init__(self, type='discrete'):
+        self.type = None  # Should be either 'discrete' or 'continuous'
+        self.constraints = None 
+        self.batch_size = None
+        self.epochs = None
+
     def load_model(self):
         self.model = GANBLR() # Initialise and return an instance of the ganblr model. 
         self.training_sample_size = 0

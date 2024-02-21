@@ -31,6 +31,12 @@ from ctgan import CTGAN
     
 class CtganAdapter(KatabaticModelSPI):
 
+    def __init__(self, type='continuous'):
+        self.type = None  # Should be either 'discrete' or 'continuous'
+        self.constraints = None 
+        self.batch_size = None
+        self.epochs = None
+
     def load_model(self): #Load the model
         self.model = CTGAN(epochs=10)   # Initialise and return an instance of the model
         print("Loading the model")
@@ -39,7 +45,7 @@ class CtganAdapter(KatabaticModelSPI):
     def load_data(): #Load data
         pass
 
-    def fit(self):  #Fit model to data
+    def fit(self, X_train, y_train, k=0, epochs=10, batch_size=64):  #Fit model to data
         print("Fitting the model")
         return
 
