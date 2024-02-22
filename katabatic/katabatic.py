@@ -51,24 +51,15 @@ class Katabatic():
         model = model_class() # Create an instance of the model class
         if not isinstance(model, KatabaticModelSPI):
             raise SystemExit(f"{class_name} doesn't implement KatabaticModelSPI.")
-        
-        # demo_data = pd.DataFrame(
-        #         {'Name': ['Tom', 'Dick', 'Harry'],
-        #         'Age':[25,27,29],
-        #         'Height':[175,177,179],
-        #         'Weight':[65,75,85]}
-        # )
-        demo_data = pd.read_csv('cities_demo.csv')
 
-        # TODO: Add a module for generating demo data. 
-        X_train = demo_data[['Name','Age','Height']]
-        y_train = demo_data[['Weight']]
+        return model
+        # # TODO: move the next code block outside the load_model function
+        # model.load_model()
+        # model.fit(X_train, y_train)
+        # synthetic_data = pd.DataFrame(model.generate())
+        # return synthetic_data
 
-        model.load_model()
-        model.fit(X_train, y_train)
-        synthetic_data = pd.DataFrame(model.generate())
-        return synthetic_data
-
+    # Accepts metric_name:str. Returns an instance of the selected metric.
     def run_metric(metric_name):
         print(f"--------------------------")
         print(f"metric name:    {metric_name}")
@@ -93,24 +84,26 @@ class Katabatic():
         if diagnostic:
             raise SystemExit(f"Metric {metric_name} {diagnostic}")
         # Run Metric
-        result = metric_name.evaluate()
-        return result
+        # result = metric_name.evaluate()
+        # return result
+        return metric
 
-    def evaluate_data(synthetic_data, real_data, dict_of_metrics):
-        # TODO: Is the data discrete or continuous?
-
+    # evaluate_data assumes the last column to be y and all others to be X
+    def evaluate_data(synthetic_data, real_data, data_type, dict_of_metrics):   #data_type s/be either 'discrete' or 'continuous'
         # By default use TSTR with Logistic Regression for discrete models
-        # run_metric("tstr")
+        for key in dict_of_metrics:
+            function = METRICS_FILE.key.value
+            Katabatic.run_metric('tstr')
 
         return
 
-    def evaluate_model(model_1, metric):
+    def evaluate_model(model, metric):
         #run_model
         return
 
 
 if __name__ == "__main__":
-    print(f"[Katabatic test 0.1]")
+    print(f"[Welcome to Katabatic version 0.1]")
     print(f"module name:    {__name__}")
     print(f"parent process: {os.getppid()}")
     print(f"process id:     {os.getpid()}")
@@ -120,6 +113,22 @@ if __name__ == "__main__":
     arguments = sys.argv[1:]
 
     for index in range(len(arguments)):
-        model_name = arguments[index]  # Move to child proess
-        result = Katabatic.run_model(model_name)  # Move to child proess
-        print(result)
+
+        model_name = arguments[index]  # Accept the argument as model_name
+    
+        model = Katabatic.run_model(model_name)  # Create an instance of the specified model
+        model.load_model()
+        # TODO: Add a module for generating demo data.  
+        demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
+        X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
+
+        model.fit(X_train, y_train) # Fit the model to the data
+        synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
+        synthetic_data.to_csv("output.csv")  # Save output to csv
+
+        print("--- GENERATED SYNTHETIC DATA ---")   # Show a sample of the synthetic data output
+        print(synthetic_data.head())
+
+        print("--- SYNTHETIC DATA EVALUATION ---") 
+        eval_result = Katabatic.evaluate_data(synthetic_data, demo_data, "discrete",{'tstr'})   # Evaluate the synthetic data and show the result
+        print(eval_result)
