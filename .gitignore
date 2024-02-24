@@ -1,10 +1,6 @@
 .DS_store
 __pycache__
-venv_ctgan
-venv_ganblr
-venv_katabatic
-venv_katabatic_3.8
-venv_katabatic_3.12
+venv_*
 
 *.drawio.bkp
 .$Katabatic.drawio.dtmp
