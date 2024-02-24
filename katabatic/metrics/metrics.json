@@ -1,7 +1,7 @@
 {
-    "trtr": "trtr.py",
-    "tstr": "tstr.py",
-    "model_compatability": "model_compatability.py",
-    "q_score": "q_score.py",
-    "similarity:": "similarity.py"
+    "trtr": "metrics/trtr.py",
+    "tstr": "metrics/tstr.py",
+    "model_compatability": "metrics/model_compatability.py",
+    "q_score": "metrics/q_score.py",
+    "similarity:": "metrics/similarity.py"
 }

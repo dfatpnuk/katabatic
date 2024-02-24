@@ -9,7 +9,7 @@ from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI
 from importer import load_module   # Aiko Services module loader
 
 CONFIG_FILE = "katabatic_config.json"  # Constant to retrieve config file
-METRICS_FILE = "metrics.metrics.json"  # Constant to retrieve metrics function table
+METRICS_FILE = "metrics/metrics.json"  # Constant to retrieve metrics function table
 
 class Katabatic():
 
@@ -40,7 +40,6 @@ class Katabatic():
             print(module_name)
             module = load_module(module_name)  # load_module method from Aiko services
             model_class = getattr(module, class_name)
-            
         except FileNotFoundError:
             diagnostic = "could not be found."
         except Exception as exception:
@@ -60,11 +59,8 @@ class Katabatic():
         # return synthetic_data
 
     # Accepts metric_name:str. Returns an instance of the selected metric.
+    # TODO: possibly update METRICS_FILE to a dict of dicts (to include type etc.. of each metric)
     def run_metric(metric_name):
-        print(f"--------------------------")
-        print(f"metric name:    {metric_name}")
-        print(f"parent process: {os.getppid()}")
-        print(f"process id:     {os.getpid()}")
 
         with open(METRICS_FILE, "r") as file:
             metrics = json.load(file)
@@ -76,7 +72,7 @@ class Katabatic():
 
         diagnostic = None # initialise an empty diagnostic variable  
         try:
-            file_path = metric[metric_name]
+            module = load_module(metric)  # load_module method from Aiko services
         except FileNotFoundError:
             diagnostic = "could not be found."
         except Exception as exception:
@@ -86,16 +82,22 @@ class Katabatic():
         # Run Metric
         # result = metric_name.evaluate()
         # return result
-        return metric
+        return module
 
     # evaluate_data assumes the last column to be y and all others to be X
     def evaluate_data(synthetic_data, real_data, data_type, dict_of_metrics):   #data_type s/be either 'discrete' or 'continuous'
+
+        results_df = pd.DataFrame({"Metric": [], "Value": []})
         # By default use TSTR with Logistic Regression for discrete models
         for key in dict_of_metrics:
-            function = METRICS_FILE.key.value
-            Katabatic.run_metric('tstr')
 
-        return
+            metric_module = Katabatic.run_metric(key)
+            result = metric_module.evaluate(2,3)    # TODO: update parameters of the evaluate function so they work for every metric.
+            new_row = pd.DataFrame({"Metric": [key], "Value": [result]})
+            results_df = pd.concat([results_df, new_row], ignore_index = True)
+            #function = METRICS_FILE.key.value
+
+        return results_df
 
     def evaluate_model(model, metric):
         #run_model
@@ -118,12 +120,12 @@ if __name__ == "__main__":
     
         model = Katabatic.run_model(model_name)  # Create an instance of the specified model
 
-
-        model.load_data(demo_data)
-        model.load_model()
         # TODO: Add a module for generating demo data.  
         demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
         X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
+
+        model.load_data(demo_data)
+        model.load_model()
 
         model.fit(X_train, y_train) # Fit the model to the data
         synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
