@@ -40,20 +40,21 @@ class CtganAdapter(KatabaticModelSPI):
         self.constraints = None 
         self.batch_size = None
         self.epochs = None
+        self.data = None
 
     def load_model(self): #Load the model
         metadata = SingleTableMetadata()
 
-        metadata.detect_from_dataframe(data)
+        metadata.detect_from_dataframe(self.data)
         self.model = CTGANSynthesizer(metadata)  # Initialise and return an instance of the model
         print("Loading the model")
         return
 
-    def load_data(): #Load data
-        pass
+    def load_data(self, data): #Load data
+        self.data = data
 
     def fit(self, X_train, y_train, k=0, epochs=10, batch_size=64):  #Fit model to data
-        self.model.fit(data)
+        self.model.fit(self.data)
         print("Fitting the model")
         return
 

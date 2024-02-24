@@ -117,6 +117,9 @@ if __name__ == "__main__":
         model_name = arguments[index]  # Accept the argument as model_name
     
         model = Katabatic.run_model(model_name)  # Create an instance of the specified model
+
+
+        model.load_data(demo_data)
         model.load_model()
         # TODO: Add a module for generating demo data.  
         demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
