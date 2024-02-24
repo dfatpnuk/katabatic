@@ -1,6 +1,10 @@
 from katabatic_spi import KatabaticModelSPI
 import pandas as pd
-from ctgan import CTGAN
+import sdv
+from sdv.single_table import CTGANSynthesizer
+from sdv.metadata import SingleTableMetadata
+
+
 
 # class CtganAdapter(KatabaticModelSPI):
     
@@ -38,7 +42,10 @@ class CtganAdapter(KatabaticModelSPI):
         self.epochs = None
 
     def load_model(self): #Load the model
-        self.model = CTGAN(epochs=10)   # Initialise and return an instance of the model
+        metadata = SingleTableMetadata()
+
+        metadata.detect_from_dataframe(data)
+        self.model = CTGANSynthesizer(metadata)  # Initialise and return an instance of the model
         print("Loading the model")
         return
 
@@ -46,6 +53,7 @@ class CtganAdapter(KatabaticModelSPI):
         pass
 
     def fit(self, X_train, y_train, k=0, epochs=10, batch_size=64):  #Fit model to data
+        self.model.fit(data)
         print("Fitting the model")
         return
 
