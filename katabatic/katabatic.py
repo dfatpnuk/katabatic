@@ -86,13 +86,26 @@ class Katabatic():
 
     # evaluate_data assumes the last column to be y and all others to be X
     def evaluate_data(synthetic_data, real_data, data_type, dict_of_metrics):   #data_type s/be either 'discrete' or 'continuous'
+        
+        # Check if synthetic_data and real_data are uniform in type and shape
+        if not type(synthetic_data)==type(real_data):
+            print("WARNING: Input types do not match: synthetic_data type: ", type(synthetic_data),"real_data type: ", type(real_data))
+        if not synthetic_data.shape==real_data.shape:
+            print("WARNING: Input shapes do not match: synthetic_data shape: ", synthetic_data.shape,"real_data shape: ", real_data.shape)
+
+        # Reset Column Headers for both datasets
+        synthetic_data.columns = range(synthetic_data.shape[1])
+        real_data.columns = range(real_data.shape[1])
+
+        # Split X and y, assume y is the last column.
+        X_synthetic, y_synthetic = synthetic_data.iloc[:,:-1], synthetic_data.iloc[:,-1:]
+        X_real, y_real = real_data.iloc[:,:-1], real_data.iloc[:,-1:]
 
         results_df = pd.DataFrame({"Metric": [], "Value": []})
         # By default use TSTR with Logistic Regression for discrete models
         for key in dict_of_metrics:
-
             metric_module = Katabatic.run_metric(key)
-            result = metric_module.evaluate(2,3)    # TODO: update parameters of the evaluate function so they work for every metric.
+            result = metric_module.evaluate(X_synthetic, y_synthetic, X_real, y_real)    # TODO: update parameters of the evaluate function so they work for every metric.
             new_row = pd.DataFrame({"Metric": [key], "Value": [result]})
             results_df = pd.concat([results_df, new_row], ignore_index = True)
             #function = METRICS_FILE.key.value
@@ -117,7 +130,6 @@ if __name__ == "__main__":
     for index in range(len(arguments)):
 
         model_name = arguments[index]  # Accept the argument as model_name
-    
         model = Katabatic.run_model(model_name)  # Create an instance of the specified model
 
         # TODO: Add a module for generating demo data.  
@@ -131,9 +143,10 @@ if __name__ == "__main__":
         synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
         synthetic_data.to_csv("output.csv")  # Save output to csv
 
-        print("--- GENERATED SYNTHETIC DATA ---")   # Show a sample of the synthetic data output
-        print(synthetic_data.head())
+        print("--- GENERATE SYNTHETIC DATA ---")   
+        print(synthetic_data.head())    # Show a sample of the synthetic data output
 
-        print("--- SYNTHETIC DATA EVALUATION ---") 
-        eval_result = Katabatic.evaluate_data(synthetic_data, demo_data, "discrete",{'tstr'})   # Evaluate the synthetic data and show the result
+        print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
+        real_data = demo_data[["Temperature","Latitude","Longitude","Category"]]
+        eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr'})   # Evaluate the synthetic data and show the result
         print(eval_result)
