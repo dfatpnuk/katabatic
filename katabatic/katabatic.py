@@ -148,5 +148,5 @@ if __name__ == "__main__":
 
         print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
         real_data = demo_data[["Temperature","Latitude","Longitude","Category"]]
-        eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr'})   # Evaluate the synthetic data and show the result
+        eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
         print(eval_result)
