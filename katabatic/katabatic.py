@@ -7,6 +7,7 @@ from multiprocessing import Process
 from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
 
 from importer import load_module   # Aiko Services module loader
+from sklearn.datasets import load_breast_cancer
 
 CONFIG_FILE = "katabatic_config.json"  # Constant to retrieve config file
 METRICS_FILE = "metrics/metrics.json"  # Constant to retrieve metrics function table
@@ -136,7 +137,10 @@ if __name__ == "__main__":
         demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
         X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
 
-        model.load_data(demo_data)
+        # X_train, y_train = load_breast_cancer(return_X_y=True, as_frame=True)
+        # demo_data = load_breast_cancer()
+        # model.load_data(demo_data)
+        
         model.load_model()
 
         model.fit(X_train, y_train) # Fit the model to the data
@@ -147,6 +151,7 @@ if __name__ == "__main__":
         print(synthetic_data.head())    # Show a sample of the synthetic data output
 
         print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
+        # TODO: remove hard coded real_data input
         real_data = demo_data[["Temperature","Latitude","Longitude","Category"]]
-        eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
+        eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
         print(eval_result)

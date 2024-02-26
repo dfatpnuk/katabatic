@@ -23,7 +23,7 @@ class GANBLR:
         self._ordinal_encoder = OrdinalEncoder(dtype=int, handle_unknown='use_encoded_value', unknown_value=-1)
         self._label_encoder   = LabelEncoder()
     
-    def fit(self, x, y, k=0, batch_size=32, epochs=10, warmup_epochs=1, verbose=1):
+    def fit(self, x, y, k=0, batch_size=32, epochs=10, warmup_epochs=1, verbose=0):
         '''
         Fit the model to the given data.
 
@@ -152,7 +152,7 @@ class GANBLR:
         origin_y = self._label_encoder.inverse_transform(ordinal_data[:,-1]).reshape(-1,1)
         return np.hstack([origin_x, origin_y])
         
-    def _sample(self, size=None, verbose=1) -> np.ndarray:
+    def _sample(self, size=None, verbose=0) -> np.ndarray:
         """
         Generate synthetic data in ordinal encoding format
         """

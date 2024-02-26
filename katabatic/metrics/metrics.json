@@ -1,5 +1,5 @@
 {
-    "trtr": "metrics/trtr.py",
+    "trtr_logreg": "metrics/trtr_logreg.py",
     "tstr_logreg": "metrics/tstr_logreg.py",
     "tstr_rf": "metrics/tstr_rf.py",
     "tstr_mlp": "metrics/tstr_mlp.py",
