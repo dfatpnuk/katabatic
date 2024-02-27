@@ -143,7 +143,7 @@ if __name__ == "__main__":
         
         model.load_model()
 
-        model.fit(X_train, y_train) # Fit the model to the data
+        model.fit(X_train, y_train) # Fit the model to the data # Do I really need to pass y_train
         synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
         synthetic_data.to_csv("output.csv")  # Save output to csv
 
@@ -152,6 +152,6 @@ if __name__ == "__main__":
 
         print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
         # TODO: remove hard coded real_data input
-        real_data = demo_data[["Temperature","Latitude","Longitude","Category"]]
+        real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
         eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
         print(eval_result)
