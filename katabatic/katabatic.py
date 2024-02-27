@@ -7,7 +7,7 @@ from multiprocessing import Process
 from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
 
 from importer import load_module   # Aiko Services module loader
-from sklearn.datasets import load_breast_cancer
+# from sklearn.datasets import load_breast_cancer
 
 CONFIG_FILE = "katabatic_config.json"  # Constant to retrieve config file
 METRICS_FILE = "metrics/metrics.json"  # Constant to retrieve metrics function table
