@@ -9,8 +9,8 @@ from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI
 from importer import load_module   # Aiko Services module loader
 # from sklearn.datasets import load_breast_cancer
 
-CONFIG_FILE = "katabatic_config.json"  # Constant to retrieve config file
-METRICS_FILE = "metrics/metrics.json"  # Constant to retrieve metrics function table
+CONFIG_FILE = os.path.abspath("katabatic_config.json")  # Constant to retrieve config file
+METRICS_FILE = os.path.abspath("metrics/metrics.json")  # Constant to retrieve metrics function table
 
 class Katabatic():
 
@@ -37,7 +37,7 @@ class Katabatic():
         
         diagnostic = None # initialise an empty diagnostic variable
         try:
-            #breakpoint()
+            # breakpoint()
             print(module_name)
             module = load_module(module_name)  # load_module method from Aiko services
             model_class = getattr(module, class_name)
@@ -113,7 +113,14 @@ class Katabatic():
 
         return results_df
 
-    def evaluate_model(model, metric):
+    def evaluate_models(real_data, dict_of_models, dict_of_metrics):
+
+        results_df = pd.DataFrame()
+        for i in range(len(dict_of_models)):
+            model_name = dict_of_models[i]
+            
+
+            
         #run_model
         return
 
@@ -127,7 +134,7 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         raise SystemExit("Usage: katabatic.py MODEL_NAME ...")
     arguments = sys.argv[1:]
-
+    
     for index in range(len(arguments)):
 
         model_name = arguments[index]  # Accept the argument as model_name
@@ -143,7 +150,7 @@ if __name__ == "__main__":
         
         model.load_model()
 
-        model.fit(X_train, y_train) # Fit the model to the data # Do I really need to pass y_train
+        model.fit(X_train, y_train) # Fit the model to the data # Louka q: Do I really need to pass y_train ?
         synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
         synthetic_data.to_csv("output.csv")  # Save output to csv
 
@@ -153,5 +160,8 @@ if __name__ == "__main__":
         print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
         # TODO: remove hard coded real_data input
         real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
-        eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
-        print(eval_result)
+        synthetic_data = synthetic_data[["Temperature","Latitude","Longitude","Category"]]
+        data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
+        
+        print(data_eval_result)
+    

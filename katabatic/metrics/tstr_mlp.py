@@ -17,7 +17,7 @@ def evaluate(X_synthetic, y_synthetic, X_real, y_real):
     y_real = le.transform(y_real)
 
     # TSTR Evaluation using MLP
-    model = MLPClassifier() #LogisticRegression(max_iter=200)
+    model = MLPClassifier(max_iter=1000) #LogisticRegression(max_iter=200)
     model.fit(X_synthetic, y_synthetic)
     y_pred = model.predict(X_real)
 

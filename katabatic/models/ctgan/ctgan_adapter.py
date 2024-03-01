@@ -4,8 +4,6 @@ import sdv
 from sdv.single_table import CTGANSynthesizer
 from sdv.metadata import SingleTableMetadata
 
-
-
 # class CtganAdapter(KatabaticModelSPI):
     
 #     def load_model(self):
@@ -44,10 +42,11 @@ class CtganAdapter(KatabaticModelSPI):
 
     def load_model(self): #Load the model
         metadata = SingleTableMetadata()
-
-        metadata.detect_from_dataframe(self.data)
+        metadata.detect_from_csv(filepath='cities_demo.csv')
+        data = pd.read_csv('cities_demo.csv') 
+        self.load_data(data)
         self.model = CTGANSynthesizer(metadata)  # Initialise and return an instance of the model
-        print("Loading the model")
+        # print("Loading the model")
         return
 
     def load_data(self, data): #Load data
@@ -59,5 +58,4 @@ class CtganAdapter(KatabaticModelSPI):
         return
 
     def generate(self): #Generate synthetic data
-        print("Generating some data")
-        return
+        return self.model.sample(num_rows=13)
