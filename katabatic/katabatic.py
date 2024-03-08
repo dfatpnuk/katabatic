@@ -4,9 +4,8 @@ import sys
 import json
 import pandas as pd
 from multiprocessing import Process
-from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
-
-from importer import load_module   # Aiko Services module loader
+from .katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
+from .importer import load_module   # Aiko Services module loader
 # from sklearn.datasets import load_breast_cancer
 
 CONFIG_FILE = os.path.abspath("katabatic_config.json")  # Constant to retrieve config file
@@ -90,11 +89,11 @@ class Katabatic():
         
         # Check if synthetic_data and real_data are uniform in type, shape and columns
         if not type(synthetic_data)==type(real_data):
-            print("WARNING: Input types do not match: synthetic_data type: ", type(synthetic_data),"real_data type: ", type(real_data))
+            raise SystemExit("WARNING: Input types do not match: synthetic_data type: ", type(synthetic_data),"real_data type: ", type(real_data))
         if not synthetic_data.shape==real_data.shape:
-            print("WARNING: Input shapes do not match: synthetic_data shape: ", synthetic_data.shape,"real_data shape: ", real_data.shape)
-        # if not synthetic_data.columns.all()==real_data.columns.all():
-        #     print("WARNING: Input column headers do not match: synthetic_data headers: ", synthetic_data.columns,"real_data headers: ", real_data.columns)
+            raise SystemExit("WARNING: Input shapes do not match: synthetic_data shape: ", synthetic_data.shape,"real_data shape: ", real_data.shape)
+        if not synthetic_data.columns.all()==real_data.columns.all():
+            raise SystemExit("WARNING: Input column headers do not match: synthetic_data headers: ", synthetic_data.columns,"real_data headers: ", real_data.columns)
 
         # Reset Column Headers for both datasets
         synthetic_data.columns = range(synthetic_data.shape[1])
@@ -164,7 +163,7 @@ if __name__ == "__main__":
         real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
         print(synthetic_data)
         #synthetic_data = synthetic_data[[0,1,2,3]]
-        data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
+        data_eval_result = evaluate.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
         
         print(data_eval_result)
     

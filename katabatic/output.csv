@@ -1,14 +1,14 @@
-,0,1,2,3
-0,17.0,14.60415895,36.29999589,Continental
-1,10.4,-41.29998785,44.51355139,Tropical
-2,17.8,45.80000673,15.99999467,Subtropical
-3,6.6,24.64083315,-75.7000153,Subtropical
-4,12.4,45.80000673,125.7546907,Subtropical
-5,10.7,-41.29998785,36.29999589,Tropical
-6,12.9,-1.283346742,46.77274166,Subtropical
-7,10.7,50.43336733,44.51355139,Continental
-8,10.4,39.0194387,121.56368,Subtropical
-9,6.6,33.500034,16.36663896,Tropical
-10,12.4,50.43336733,46.77274166,Continental
-11,6.6,40.18115074,174.7832659,Continental
-12,28.4,48.20001528,36.81665686,Subtropical
+,Country,Capital City,Latitude,Longitude,Temperature,Category
+0,sdv-id-0,Poolechester,-75.1777625,120.308987,28.4,Tropical
+1,sdv-id-1,South Katelyn,8.4724245,159.547769,17.4,Continental
+2,sdv-id-2,East Catherineburgh,31.3114625,-17.261687,20.4,Subtropical
+3,sdv-id-3,Mcgeefort,-20.2457715,41.203897,12.8,Continental
+4,sdv-id-4,Wolfeport,-77.5736255,-103.878558,28.4,Tropical
+5,sdv-id-5,Dianaview,78.6646395,105.726564,19.4,Continental
+6,sdv-id-6,East Evelynchester,-10.653517,179.110655,24.2,Tropical
+7,sdv-id-7,Raymondbury,62.1409025,143.189927,28.4,Tropical
+8,sdv-id-8,Patelberg,-49.4993415,-151.108443,28.4,Tropical
+9,sdv-id-9,Annetteton,-83.718175,-15.389078,22.3,Subtropical
+10,sdv-id-10,Lake Melissastad,-75.9065805,31.421979,28.4,Subtropical
+11,sdv-id-11,Davidburgh,31.864879,-32.723879,28.4,Tropical
+12,sdv-id-12,Smithmouth,-65.8385315,173.674861,6.9,Continental
