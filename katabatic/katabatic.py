@@ -4,8 +4,8 @@ import sys
 import json
 import pandas as pd
 from multiprocessing import Process
-from .katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
-from .importer import load_module   # Aiko Services module loader
+from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
+from importer import load_module   # Aiko Services module loader
 # from sklearn.datasets import load_breast_cancer
 
 CONFIG_FILE = os.path.abspath("katabatic_config.json")  # Constant to retrieve config file
@@ -85,8 +85,18 @@ class Katabatic():
         return module
 
     # evaluate_data assumes the last column to be y and all others to be X
+
+    # evaluate_data evaluates the synthetic data based on the training dataset for a variety of metrics. 
+    # TODO: Update third parameter to something like discrete_or_continuous or discrete (True or False)
     def evaluate_data(synthetic_data, real_data, data_type, dict_of_metrics):   #data_type s/be either 'discrete' or 'continuous'
+        # Convert column headers to integers?
+
+        # Remove column headers?
+
+        print("Type of real_data: ", type(real_data))
+        print("Type of synthetic_data: ", type(synthetic_data))
         
+
         # Check if synthetic_data and real_data are uniform in type, shape and columns
         if not type(synthetic_data)==type(real_data):
             raise SystemExit("WARNING: Input types do not match: synthetic_data type: ", type(synthetic_data),"real_data type: ", type(real_data))
@@ -163,7 +173,7 @@ if __name__ == "__main__":
         real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
         print(synthetic_data)
         #synthetic_data = synthetic_data[[0,1,2,3]]
-        data_eval_result = evaluate.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
+        data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
         
         print(data_eval_result)
     
