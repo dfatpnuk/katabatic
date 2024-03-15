@@ -7,6 +7,7 @@ from multiprocessing import Process
 from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI 
 from importer import load_module   # Aiko Services module loader
 # from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
 
 CONFIG_FILE = os.path.abspath("katabatic_config.json")  # Constant to retrieve config file
 METRICS_FILE = os.path.abspath("metrics/metrics.json")  # Constant to retrieve metrics function table
@@ -134,6 +135,21 @@ class Katabatic():
         #run_model
         return
 
+    def preprocessing(data):
+
+        # Remove Column Headers 
+        data.columns = range(data.shape[1])
+        # Validate Data
+        
+
+        # X, Y Split
+        X, y = data[-1:], data[:-1] # Split X from y
+
+        # Train, Test Split
+        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+        return X_train, y_train, X_test, y_test
+        
 
 if __name__ == "__main__":
     print(f"[Welcome to Katabatic version 0.1]")
@@ -153,6 +169,8 @@ if __name__ == "__main__":
     # Get demo data from GANBLR package
     from pandas import read_csv
     ganblr_demo_data = read_csv('https://raw.githubusercontent.com/chriszhangpodo/discretizedata/main/adult-dm.csv',dtype=int)
+
+    # X_train, y_train, X_test, y_test = Katabatic.preprocessing(ganblr_demo_data)
 
     # TODO: Add a module for generating demo data.  
     demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
@@ -174,7 +192,7 @@ if __name__ == "__main__":
     print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
     # TODO: remove hard coded real_data input
     real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
-    print(synthetic_data)
+    # print(synthetic_data)
     #synthetic_data = synthetic_data[[0,1,2,3]]
     data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
     

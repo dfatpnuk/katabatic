@@ -1,7 +1,12 @@
  # Get demo data from GANBLR package
 from pandas import read_csv
+from katabatic import Katabatic
 ganblr_demo_data = read_csv('https://raw.githubusercontent.com/chriszhangpodo/discretizedata/main/adult-dm.csv',dtype=int)
-print(ganblr_demo_data)
+# print(ganblr_demo_data)
+
+X_train, y_train, X_test, y_test = Katabatic.preprocessing(ganblr_demo_data)
+
+print(X_test)
 
 # import pandas as pd
 # from sklearn.linear_model import LogisticRegression
