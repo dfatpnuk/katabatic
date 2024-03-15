@@ -124,14 +124,13 @@ class Katabatic():
 
         return results_df
 
+    # TODO: return a dynamic comparison report of 
     def evaluate_models(real_data, dict_of_models, dict_of_metrics):
 
         results_df = pd.DataFrame()
         for i in range(len(dict_of_models)):
             model_name = dict_of_models[i]
-            
 
-            
         #run_model
         return
 
@@ -151,29 +150,33 @@ if __name__ == "__main__":
         model_name = arguments[index]  # Accept the argument as model_name
         model = Katabatic.run_model(model_name)  # Create an instance of the specified model
 
-        # TODO: Add a module for generating demo data.  
-        demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
-        X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
+    # Get demo data from GANBLR package
+    from pandas import read_csv
+    ganblr_demo_data = read_csv('https://raw.githubusercontent.com/chriszhangpodo/discretizedata/main/adult-dm.csv',dtype=int)
 
-        # X_train, y_train = load_breast_cancer(return_X_y=True, as_frame=True)
-        # demo_data = load_breast_cancer()
-        # model.load_data(demo_data)
-        
-        model.load_model()
+    # TODO: Add a module for generating demo data.  
+    demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
+    X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
 
-        model.fit(X_train, y_train) # Fit the model to the data # Louka q: Do I really need to pass y_train ?
-        synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
-        synthetic_data.to_csv("output.csv")  # Save output to csv
+    # X_train, y_train = load_breast_cancer(return_X_y=True, as_frame=True)
+    # demo_data = load_breast_cancer()
+    # model.load_data(demo_data)
+    
+    model.load_model()
 
-        print("--- GENERATE SYNTHETIC DATA ---")   
-        print(synthetic_data.head())    # Show a sample of the synthetic data output
+    model.fit(X_train, y_train) # Fit the model to the data # Louka q: Do I really need to pass y_train ?
+    synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
+    synthetic_data.to_csv("output.csv")  # Save output to csv
 
-        print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
-        # TODO: remove hard coded real_data input
-        real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
-        print(synthetic_data)
-        #synthetic_data = synthetic_data[[0,1,2,3]]
-        data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
-        
-        print(data_eval_result)
+    print("--- GENERATE SYNTHETIC DATA ---")   
+    print(synthetic_data.head())    # Show a sample of the synthetic data output
+
+    print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
+    # TODO: remove hard coded real_data input
+    real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
+    print(synthetic_data)
+    #synthetic_data = synthetic_data[[0,1,2,3]]
+    data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
+    
+    print(data_eval_result)
     
