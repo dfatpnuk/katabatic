@@ -135,20 +135,27 @@ class Katabatic():
         #run_model
         return
 
+    # Returns X_train, X_test, y_train, y_test in that order
     def preprocessing(data):
 
-        # Remove Column Headers 
+        # Reset Column Headers 
         data.columns = range(data.shape[1])
+
         # Validate Data
-        
 
         # X, Y Split
-        X, y = data[-1:], data[:-1] # Split X from y
+        X = data.iloc[:, :-1] # all but last column
+        y = data.iloc[:, -1] # last column
+        # print("Shape of X: ", X.shape, "Shape of y: ", y.shape)
 
         # Train, Test Split
-        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+        print("Shape of X_train: ", X_train.shape, "Shape of y_train: ", y_train.shape)
+        print("Shape of X_test: ", X_test.shape, "Shape of y_test: ", y_test.shape)
+        print("Type of X_test: ", type(X_test), "Type of y_test: ", type(y_test))
 
-        return X_train, y_train, X_test, y_test
+
+        return X_train, X_test, y_train, y_test
         
 
 if __name__ == "__main__":
@@ -170,18 +177,19 @@ if __name__ == "__main__":
     from pandas import read_csv
     ganblr_demo_data = read_csv('https://raw.githubusercontent.com/chriszhangpodo/discretizedata/main/adult-dm.csv',dtype=int)
 
-    # X_train, y_train, X_test, y_test = Katabatic.preprocessing(ganblr_demo_data)
+    X_train, X_test, y_train, y_test = Katabatic.preprocessing(ganblr_demo_data)
 
-    # TODO: Add a module for generating demo data.  
-    demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
-    X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
-
+    
+                # demo_data = pd.read_csv('cities_demo.csv') # Retrieve some demo data
+                # X_train, y_train = demo_data[["Temperature","Latitude","Longitude"]], demo_data["Category"] # Split X from y
+   
+   # TODO: Add a module for generating demo data.  
     # X_train, y_train = load_breast_cancer(return_X_y=True, as_frame=True)
     # demo_data = load_breast_cancer()
     # model.load_data(demo_data)
     
     model.load_model()
-
+    print("1 Shape of y_train: ", y_train.shape)
     model.fit(X_train, y_train) # Fit the model to the data # Louka q: Do I really need to pass y_train ?
     synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
     synthetic_data.to_csv("output.csv")  # Save output to csv
@@ -191,7 +199,8 @@ if __name__ == "__main__":
 
     print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
     # TODO: remove hard coded real_data input
-    real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
+                # real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
+    real_data = pd.DataFrame(pd.concat([X_test, y_test],axis=1))
     # print(synthetic_data)
     #synthetic_data = synthetic_data[[0,1,2,3]]
     data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result

@@ -4,7 +4,7 @@ from katabatic import Katabatic
 ganblr_demo_data = read_csv('https://raw.githubusercontent.com/chriszhangpodo/discretizedata/main/adult-dm.csv',dtype=int)
 # print(ganblr_demo_data)
 
-X_train, y_train, X_test, y_test = Katabatic.preprocessing(ganblr_demo_data)
+X_train, X_test, y_train, y_test = Katabatic.preprocessing(ganblr_demo_data)
 
 print(X_test)
 
