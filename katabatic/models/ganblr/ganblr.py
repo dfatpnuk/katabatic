@@ -8,6 +8,8 @@ from pgmpy.factors.discrete import TabularCPD
 from sklearn.preprocessing import OrdinalEncoder, LabelEncoder
 import numpy as np
 import tensorflow as tf
+import warnings
+warnings.filterwarnings("ignore")
 
 class GANBLR:
     """
@@ -130,7 +132,7 @@ class GANBLR:
         pred = pipline.predict(x_test)
         return accuracy_score(y_test, pred)
     
-    def sample(self, size=None, verbose=1) -> np.ndarray:
+    def sample(self, size=None, verbose=0) -> np.ndarray:
         """
         Generate synthetic data.     
 

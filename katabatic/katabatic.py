@@ -8,6 +8,12 @@ from katabatic_spi import KatabaticModelSPI  # Katabatic Model SPI
 from importer import load_module   # Aiko Services module loader
 # from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
+# import warnings
+# warnings.filterwarnings("ignore")
+import logging
+from warnings import simplefilter
+simplefilter(action="ignore", category=FutureWarning)
+logging.basicConfig(filename='running.log', level=logging.INFO)
 
 CONFIG_FILE = os.path.abspath("katabatic_config.json")  # Constant to retrieve config file
 METRICS_FILE = os.path.abspath("metrics/metrics.json")  # Constant to retrieve metrics function table
@@ -140,7 +146,14 @@ class Katabatic():
 
         # Reset Column Headers 
         data.columns = range(data.shape[1])
+        
+        # Handle null values
+        for col in range(len(data.columns)):     # Check which features contain null values
+            if data[col].isnull().any():
+                print("Column: ", col, " contains Null values.")
 
+
+        # data=data.copy().fillna(data['f21'].median()) #copy the dataframe into a new dataframe, and fill missing values. 
         # Validate Data
 
         # X, Y Split
@@ -149,7 +162,7 @@ class Katabatic():
         # print("Shape of X: ", X.shape, "Shape of y: ", y.shape)
 
         # Train, Test Split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=42)
         print("Shape of X_train: ", X_train.shape, "Shape of y_train: ", y_train.shape)
         print("Shape of X_test: ", X_test.shape, "Shape of y_test: ", y_test.shape)
         print("Type of X_test: ", type(X_test), "Type of y_test: ", type(y_test))
@@ -163,6 +176,8 @@ if __name__ == "__main__":
     print(f"module name:    {__name__}")
     print(f"parent process: {os.getppid()}")
     print(f"process id:     {os.getpid()}")
+    import warnings
+    warnings.filterwarnings("ignore")
 
     if len(sys.argv) < 2:
         raise SystemExit("Usage: katabatic.py MODEL_NAME ...")
@@ -203,7 +218,7 @@ if __name__ == "__main__":
     real_data = pd.DataFrame(pd.concat([X_test, y_test],axis=1))
     # print(synthetic_data)
     #synthetic_data = synthetic_data[[0,1,2,3]]
-    data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'trtr_logreg','tstr_logreg','tstr_rf','tstr_mlp'})   # Evaluate the synthetic data and show the result
+    data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg'})   # Evaluate the synthetic data and show the result
     
     print(data_eval_result)
     

@@ -5,3 +5,5 @@ venv_*
 *.drawio.bkp
 .$Katabatic.drawio.dtmp
 katabatic/output.csv
+katabatic/running.log
+katabatic/output.csv

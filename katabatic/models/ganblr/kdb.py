@@ -1,6 +1,8 @@
 import numpy as np
 #import networkx as nx
 from pyitlib import discrete_random_variable as drv
+import warnings
+warnings.filterwarnings("ignore")
 
 def build_graph(X, y, k=2):
   '''
