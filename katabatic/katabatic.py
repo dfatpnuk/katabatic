@@ -92,17 +92,13 @@ class Katabatic():
         return module
 
     # evaluate_data assumes the last column to be y and all others to be X
-
     # evaluate_data evaluates the synthetic data based on the training dataset for a variety of metrics. 
     # TODO: Update third parameter to something like discrete_or_continuous or discrete (True or False)
     def evaluate_data(synthetic_data, real_data, data_type, dict_of_metrics):   #data_type s/be either 'discrete' or 'continuous'
         # Convert column headers to integers?
-
         # Remove column headers?
-
         print("Type of real_data: ", type(real_data))
         print("Type of synthetic_data: ", type(synthetic_data))
-        
 
         # Check if synthetic_data and real_data are uniform in type, shape and columns
         if not type(synthetic_data)==type(real_data):
@@ -208,17 +204,18 @@ if __name__ == "__main__":
     model.fit(X_train, y_train) # Fit the model to the data # Louka q: Do I really need to pass y_train ?
     synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
     synthetic_data.to_csv("output.csv")  # Save output to csv
-
+    print("---- SHOW REAL DATA ----")
+    real_data = pd.concat([X_train, y_train], axis=1)
+    print(real_data.head())
     print("--- GENERATE SYNTHETIC DATA ---")   
     print(synthetic_data.head())    # Show a sample of the synthetic data output
 
     print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
-    # TODO: remove hard coded real_data input
-                # real_data = demo_data[["Temperature","Latitude","Longitude","Category"]] #update to y_train
+
     real_data = pd.DataFrame(pd.concat([X_test, y_test],axis=1))
     # print(synthetic_data)
     #synthetic_data = synthetic_data[[0,1,2,3]]
-    data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg'})   # Evaluate the synthetic data and show the result
+    # data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg'})   # Evaluate the synthetic data and show the result
     
-    print(data_eval_result)
+    # print(data_eval_result)
     
