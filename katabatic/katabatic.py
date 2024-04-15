@@ -97,8 +97,8 @@ class Katabatic():
     def evaluate_data(synthetic_data, real_data, data_type, dict_of_metrics):   #data_type s/be either 'discrete' or 'continuous'
         # Convert column headers to integers?
         # Remove column headers?
-        print("Type of real_data: ", type(real_data))
-        print("Type of synthetic_data: ", type(synthetic_data))
+        # print("Type of real_data: ", type(real_data))
+        # print("Type of synthetic_data: ", type(synthetic_data))
 
         # Check if synthetic_data and real_data are uniform in type, shape and columns
         if not type(synthetic_data)==type(real_data):
@@ -213,7 +213,6 @@ if __name__ == "__main__":
     print(synthetic_data.head())    # Show a sample of the synthetic data output
 
     print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
-
     real_data = pd.concat([X_test, y_test],axis=1)
     data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg'})   # Evaluate the synthetic data and show the result
     
