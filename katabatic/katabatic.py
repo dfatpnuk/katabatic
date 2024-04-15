@@ -202,20 +202,20 @@ if __name__ == "__main__":
     model.load_model()
     print("1 Shape of y_train: ", y_train.shape)
     model.fit(X_train, y_train) # Fit the model to the data # Louka q: Do I really need to pass y_train ?
-    synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
-    synthetic_data.to_csv("output.csv")  # Save output to csv
     print("---- SHOW REAL DATA ----")
     real_data = pd.concat([X_train, y_train], axis=1)
     print(real_data.head())
+
     print("--- GENERATE SYNTHETIC DATA ---")   
+    synthetic_data = pd.DataFrame(model.generate()) # Generate synthetic data
+    synthetic_data.to_csv("output.csv")  # Save output to csv
+
     print(synthetic_data.head())    # Show a sample of the synthetic data output
 
     print("--- EVALUATE SYNTHETIC DATA ---")   # Evaluate the Synthetic Data
 
-    real_data = pd.DataFrame(pd.concat([X_test, y_test],axis=1))
-    # print(synthetic_data)
-    #synthetic_data = synthetic_data[[0,1,2,3]]
-    # data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg'})   # Evaluate the synthetic data and show the result
+    real_data = pd.concat([X_test, y_test],axis=1)
+    data_eval_result = Katabatic.evaluate_data(synthetic_data, real_data, "discrete",{'tstr_logreg'})   # Evaluate the synthetic data and show the result
     
-    # print(data_eval_result)
+    print(data_eval_result)
     
