@@ -31,3 +31,13 @@ GANBLR is a data generative model introduced in the following [paper](https://ww
  	GANBLR: A Tabular Data Generation Model. 10.1109/ICDM51629.2021.00103. 
 
 
+  # TO DO:
+  - Improve the evaluation methods so they are easier to use.
+  - Debug evaluate_data()
+  - Move individual models into docker containers.
+  - Finalize documentation page "Getting Started with Katabatic"
+  - Finalise documentation page "Installation Guide"
+
+  
+
+
