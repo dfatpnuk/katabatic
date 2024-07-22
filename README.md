@@ -35,8 +35,10 @@ GANBLR is a data generative model introduced in the following [paper](https://ww
   - Improve the evaluation methods so they are easier to use.
   - Debug evaluate_data()
   - Move individual models into docker containers.
-  - Finalize documentation page "Getting Started with Katabatic"
+  - Finalise documentation page "Getting Started with Katabatic"
   - Finalise documentation page "Installation Guide"
+  - Cleanup folder structure in preparation to add Katabatic to PyPi.
+  - Move Aiko implementation from Prototype to Katabatic
 
   
 
